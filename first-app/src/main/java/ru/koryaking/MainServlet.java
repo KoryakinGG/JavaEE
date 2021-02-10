@@ -39,12 +39,10 @@ public class MainServlet extends HttpServlet {
      */
     @Override
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
+        getServletContext().getRequestDispatcher("/header").include(servletRequest, servletResponse);
         logger.info("New request to MainServlet");
         servletResponse.getWriter().println("<h1>This is main servlet</h1>");
-        servletResponse.getWriter().println("<a href='./catalog-servlet'> Каталог");
-        servletResponse.getWriter().println("<a href='./product-servlet'> Товар");
-        servletResponse.getWriter().println("<a href='./cart-servlet'> Корзина");
-        servletResponse.getWriter().println("<a href='./order-servlet'> Заказ");
+
     }
 
     @Override
