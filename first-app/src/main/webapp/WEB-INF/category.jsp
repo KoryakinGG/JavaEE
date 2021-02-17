@@ -37,9 +37,8 @@
 <div class="container">
     <div class="row py-2">
         <div class="col-12">
-            <c:url value="/category/add_category" var="categoryAddUrl">
+            <c:url value="/category/add_category" var="categoryAddUrl"> </c:url>
             <a class="btn btn-primary" href="${categoryAddUrl}">Add Category</a>
-            </c:url>
         </div>
 
         <div class="col-12">
@@ -74,7 +73,7 @@
                             <c:param name="id" value="${category.id}"/>
                         </c:url>
                         <a class="btn btn-success" href="${categoryEditUrl}"><i class="fas fa-edit"></i></a>
-                        <c:url value="/category/delete" var="categoryDeleteUrl">
+                        <c:url value="/category/delete_category" var="categoryDeleteUrl">
                             <c:param name="id" value="${category.id}"/>
                         </c:url>
                         <a class="btn btn-danger" href="${categoryDeleteUrl}"><i class="far fa-trash-alt"></i></a>

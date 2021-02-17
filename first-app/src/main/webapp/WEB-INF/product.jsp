@@ -37,9 +37,9 @@
 <div class="container">
     <div class="row py-2">
         <div class="col-12">
-            <c:url value="/product/add" var="productAddUrl">
+            <c:url value="/product/add" var="productAddUrl"></c:url>
             <a class="btn btn-primary" href="${productAddUrl}">Add Product</a>
-            </c:url>
+
         </div>
 
         <div class="col-12">
