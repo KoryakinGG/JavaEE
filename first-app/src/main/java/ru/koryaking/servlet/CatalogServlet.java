@@ -1,4 +1,4 @@
-package ru.koryaking;
+package ru.koryaking.servlet;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

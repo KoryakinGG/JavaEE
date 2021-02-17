@@ -1,4 +1,6 @@
-package ru.koryaking.persist;
+package ru.koryaking.repository;
+
+import ru.koryaking.persist.Product;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +25,6 @@ public class ProductRepository {
         if (product.getId() == null) {
             Long id = identity. incrementAndGet();
             product.setId(id);
-
         }
         productMap.put(product.getId(),product);
     }

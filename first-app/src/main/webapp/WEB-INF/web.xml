@@ -7,7 +7,7 @@
     <display-name>Archetype Created Web Application</display-name>
     <servlet>
         <servlet-name>FirstServlet</servlet-name>
-        <servlet-class>ru.koryaking.FirstServlet</servlet-class>
+        <servlet-class>ru.koryaking.servlet.FirstServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>

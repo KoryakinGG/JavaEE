@@ -1,9 +1,7 @@
-package ru.koryaking;
+package ru.koryaking.servlet;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import ru.koryaking.persist.Product;
-import ru.koryaking.persist.ProductRepository;
+import ru.koryaking.repository.ProductRepository;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
@@ -64,25 +62,25 @@ public class ProductServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-           if(req.getPathInfo().equals("/edit")){
-               long id;
-               try {
-                   id = Long.parseLong(req.getParameter("id"));
-               } catch (NumberFormatException ex) {
-                   resp.setStatus(400);
-                   return;
-               }
-               BigDecimal price;
-               try {
-                   price = new BigDecimal(req.getParameter("price"));
-               } catch (NumberFormatException ex) {
-                   resp.setStatus(400);
-                   return;
-               }
-               Product product = new Product(id, req.getParameter("name"), req.getParameter("description"), price);
-               productRepository.saveOrUpdate(product);
-               resp.sendRedirect(getServletContext().getContextPath() + "/product");
-           } else if(req.getPathInfo().equals("/add")){
+        if (req.getPathInfo().equals("/edit")) {
+            long id;
+            try {
+                id = Long.parseLong(req.getParameter("id"));
+            } catch (NumberFormatException ex) {
+                resp.setStatus(400);
+                return;
+            }
+            BigDecimal price;
+            try {
+                price = new BigDecimal(req.getParameter("price"));
+            } catch (NumberFormatException ex) {
+                resp.setStatus(400);
+                return;
+            }
+            Product product = new Product(id, req.getParameter("name"), req.getParameter("description"), price);
+            productRepository.saveOrUpdate(product);
+            resp.sendRedirect(getServletContext().getContextPath() + "/product");
+        } else if (req.getPathInfo().equals("/add")) {
             BigDecimal price;
             try {
                 price = new BigDecimal(req.getParameter("price"));
@@ -94,6 +92,5 @@ public class ProductServlet extends HttpServlet {
             productRepository.saveOrUpdate(product);
             resp.sendRedirect(getServletContext().getContextPath() + "/product");
         }
-
-        }
+    }
 }
