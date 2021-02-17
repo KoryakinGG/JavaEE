@@ -62,14 +62,25 @@ public class ProductServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if(req.getPathInfo().equals("/edit")) {
-            long id;
-            try {
-                id = Long.parseLong(req.getParameter("id"));
-            } catch (NumberFormatException ex) {
-                resp.setStatus(400);
-                return;
-            }
+           if(req.getPathInfo().equals("/edit")){
+               long id;
+               try {
+                   id = Long.parseLong(req.getParameter("id"));
+               } catch (NumberFormatException ex) {
+                   resp.setStatus(400);
+                   return;
+               }
+               BigDecimal price;
+               try {
+                   price = new BigDecimal(req.getParameter("price"));
+               } catch (NumberFormatException ex) {
+                   resp.setStatus(400);
+                   return;
+               }
+               Product product = new Product(id, req.getParameter("name"), req.getParameter("description"), price);
+               productRepository.saveOrUpdate(product);
+               resp.sendRedirect(getServletContext().getContextPath() + "/product");
+           } else if(req.getPathInfo().equals("/add")){
             BigDecimal price;
             try {
                 price = new BigDecimal(req.getParameter("price"));
@@ -77,13 +88,10 @@ public class ProductServlet extends HttpServlet {
                 resp.setStatus(400);
                 return;
             }
-            Product product = new Product(id, req.getParameter("name"), req.getParameter("description"), price);
+            Product product = new Product(null, req.getParameter("name"), req.getParameter("description"), price);
             productRepository.saveOrUpdate(product);
             resp.sendRedirect(getServletContext().getContextPath() + "/product");
         }
-        else if (req.getPathInfo().equals("/product_add_form")) {
 
-            getServletContext().getRequestDispatcher("/WEB-INF/product_add_form.jsp").forward(req, resp);
         }
-    }
 }

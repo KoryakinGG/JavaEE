@@ -37,7 +37,9 @@
 <div class="container">
     <div class="row py-2">
         <div class="col-12">
-            <a class="btn btn-primary" href="product_form.jsp">Add Product</a>
+            <c:url value="/product/add" var="productAddUrl">
+            <a class="btn btn-primary" href="${productAddUrl}">Add Product</a>
+            </c:url>
         </div>
 
         <div class="col-12">

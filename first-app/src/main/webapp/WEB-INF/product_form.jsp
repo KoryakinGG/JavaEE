@@ -37,7 +37,7 @@
 <div class="container">
     <div class="row py-2">
         <div class="col-12">
-            <c:url value="/product" var="productSubmitUrl"/>
+            <c:url value="/product/edit" var="productSubmitUrl"/>
             <form action="${productSubmitUrl}" method="post">
                     <input type="hidden" id="id" name="id" value="${product.id}">
                 <div class="form-group">
