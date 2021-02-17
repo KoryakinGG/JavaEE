@@ -1,4 +1,4 @@
-package ru.koryaking;
+package ru.koryaking.filter;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
