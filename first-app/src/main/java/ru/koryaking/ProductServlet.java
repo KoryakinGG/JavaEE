@@ -57,6 +57,8 @@ public class ProductServlet extends HttpServlet {
             }
             productRepository.deleteById(id);
             resp.sendRedirect(getServletContext().getContextPath()+ "/product");
+        }else if (req.getPathInfo().equals("/add")) {
+            getServletContext().getRequestDispatcher("/WEB-INF/product_add_form.jsp").forward(req, resp);
         }
     }
 
