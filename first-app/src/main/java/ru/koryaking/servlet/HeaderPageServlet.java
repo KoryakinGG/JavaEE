@@ -1,4 +1,4 @@
-package ru.koryaking;
+package ru.koryaking.servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
