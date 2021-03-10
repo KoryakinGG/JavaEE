@@ -18,24 +18,9 @@
 
 <h:body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">EShop</a>
-        <a class="navbar-brand" href="/catalog.xhtml">Catalog</a>
-        <a class="navbar-brand" href="/product.xhtml">Product</a>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">List</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <ui:include src="WEB-INF/fragments/navigation.xhtml">
+        <ui:param name="pageName" value="Cart"/>
+    </ui:include>
 
     <div class="container">
         <div class="row py-2">
@@ -45,17 +30,17 @@
                     <div class="form-group">
                         <label>Name</label>
                         <h:inputText styleClass="form-control" id="name"
-                                     value="#{catalogController.catalog.name}"
+                                     value="#{categoryController.category.name}"
                                      placeholder="Enter name"/>
                     </div>
                     <div class="form-group">
                         <label>Description</label>
                         <h:inputText styleClass="form-control" id="description"
-                                     value="#{catalogController.catalog.description}"
+                                     value="#{categoryController.category.description}"
                                      placeholder="Enter description"/>
                     </div>
                     <h:commandButton value="Submit" styleClass="btn btn-primary"
-                                     action="#{catalogController.saveCatalog()}"/>
+                                     action="#{categoryController.saveCategory()}"/>
                 </h:form>
             </div>
         </div>
