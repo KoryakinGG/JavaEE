@@ -23,78 +23,81 @@
             <version>4.0.1</version>
             <scope>provided</scope>
         </dependency>
-
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.25</version>
             <scope>provided</scope>
         </dependency>
-
         <dependency>
             <groupId>javax.faces</groupId>
             <artifactId>javax.faces-api</artifactId>
             <version>2.3</version>
             <scope>provided</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>8.0</version>
+        </dependency>
         <dependency>
             <groupId>javax.enterprise</groupId>
             <artifactId>cdi-api</artifactId>
-            <version>1.0</version>
+            <version>2.0</version>
             <scope>provided</scope>
         </dependency>
-
         <dependency>
             <groupId>javax.annotation</groupId>
             <artifactId>javax.annotation-api</artifactId>
             <version>1.3.2</version>
             <scope>provided</scope>
         </dependency>
-
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
             <version>2.0.1.Final</version>
             <scope>provided</scope>
         </dependency>
-
         <dependency>
-            <groupId>org.primefaces</groupId>
-            <artifactId>primefaces</artifactId>
-            <version>10.0.0-RC1</version>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <version>1.0.2.Final</version>
+            <scope>provided</scope>
         </dependency>
-
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.4.28.Final</version>
+            <version>5.3.7.Final</version>
             <scope>provided</scope>
         </dependency>
-
         <dependency>
-            <groupId>javax.persistence</groupId>
-            <artifactId>javax.persistence-api</artifactId>
-            <version>2.2</version>
+            <groupId>org.jboss.spec.javax.ejb</groupId>
+            <artifactId>jboss-ejb-api_3.2_spec</artifactId>
+            <version>2.0.0.Final</version>
             <scope>provided</scope>
         </dependency>
-
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.18</version>
+            <groupId>javax.jms</groupId>
+            <artifactId>javax.jms-api</artifactId>
+            <version>2.0.1</version>
+            <scope>provided</scope>
         </dependency>
-
         <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>42.2.18</version>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.0</version>
+            <scope>provided</scope>
         </dependency>
-
         <dependency>
-            <groupId>org.flywaydb.enterprise</groupId>
-            <artifactId>flyway-core</artifactId>
-            <version>7.5.3</version>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-ri</artifactId>
+            <version>2.3.3</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>ru.koryaking</groupId>
+            <artifactId>product-service-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
@@ -115,8 +118,12 @@
                 <configFiles>src/main/resources/flyway.conf</configFiles>
             </configuration>
         </plugin>
+<!--        <plugin>-->
+<!--            <artifactId>maven-war-plugin</artifactId>-->
+<!--&lt;!&ndash;            <configuration>&ndash;&gt;-->
+<!--&lt;!&ndash;               <archiveClasses>true</archiveClasses>&ndash;&gt;-->
+<!--&lt;!&ndash;            </configuration>&ndash;&gt;-->
+<!--        </plugin>-->
         </plugins>
     </build>
-
-
 </project>

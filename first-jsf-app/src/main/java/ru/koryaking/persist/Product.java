@@ -1,5 +1,6 @@
 package ru.koryaking.persist;
 
+import ru.koryaking.service.ProductRepr;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -36,6 +37,14 @@ public class Product {
         this.name = name;
         this.description = description;
         this.price = price;
+    }
+
+    public Product(ProductRepr productRepr, Category category) {
+        this(productRepr.getId(),
+             productRepr.getName(),
+             productRepr.getDescription(),
+             productRepr.getPrice());
+        this.category = category;
     }
 
     public Long getId() {

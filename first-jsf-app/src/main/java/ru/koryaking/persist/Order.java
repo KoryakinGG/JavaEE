@@ -1,6 +1,5 @@
 package ru.koryaking.persist;
 
-
 import javax.persistence.*;
 
 @Entity
