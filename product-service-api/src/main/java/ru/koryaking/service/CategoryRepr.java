@@ -1,17 +1,21 @@
-package ru.koryaking.persist;
+package ru.koryaking.service;
 
-public class Catalog {
+import java.io.Serializable;
+
+public class CategoryRepr implements Serializable {
+
     private Long id;
     private String name;
     private String description;
 
-    public Catalog(Long id, String name, String description) {
+
+    public CategoryRepr() {
+    }
+
+    public CategoryRepr(Long id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
-    }
-
-    public Catalog() {
     }
 
     public Long getId() {

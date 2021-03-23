@@ -1,52 +1,41 @@
 package ru.koryaking.repository;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.koryaking.persist.Product;
-
-import javax.annotation.PostConstruct;
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Named;
-import java.math.BigDecimal;
-import java.util.ArrayList;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicLong;
 
-@Named
-@ApplicationScoped
+@Stateless
 public class ProductRepository {
 
-    private final Map<Long, Product> productMap = new ConcurrentHashMap<>();
+    private static final Logger logger = LoggerFactory.getLogger(ProductRepository.class);
 
-    private final AtomicLong identity = new AtomicLong(0);
+    @PersistenceContext(unitName = "ds")
+    private EntityManager entityManager;
 
-    @PostConstruct
-    public void init() {
-        this.saveOrUpdate(new Product(null, "Product  1",
-                "Description of product 1", new BigDecimal(100)));
-        this.saveOrUpdate(new Product(null, "Product  2",
-                "Description of product 2", new BigDecimal(200)));
-        this.saveOrUpdate(new Product(null, "Product  3",
-                "Description of product 3", new BigDecimal(200)));
-    }
+    public List<Product> findAll() {return entityManager.createNamedQuery("findAllProduct", Product.class).getResultList();}
 
-    public List<Product> findAll() {
-        return new ArrayList<>(productMap.values());
-    }
+    public Long countAll() {return entityManager.createNamedQuery("countAllProduct", Long.class).getSingleResult();}
 
     public Product findById(Long id) {
-        return productMap.get(id);
+        return entityManager.find(Product.class, id);
     }
+
 
     public void saveOrUpdate(Product product) {
         if (product.getId() == null) {
-            Long id = identity.incrementAndGet();
-            product.setId(id);
+            entityManager.persist(product);
         }
-        productMap.put(product.getId(), product);
+        entityManager.merge(product);
     }
 
+
     public void deleteById(Long id) {
-        productMap.remove(id);
+       entityManager.createNamedQuery("deleteByIdProduct")
+               .setParameter("id", id)
+               .executeUpdate();
     }
 }

@@ -1,0 +1,8 @@
+#module add \
+#  --name=org.postgresql \
+#  --dependencies=javax.api,javax.transaction.api \
+#  --resources=D:\PROGRAMMING\JDBC_Driver\postgresql-42.2.19.jar
+
+/subsystem=datasources/jdbc-driver=postgres:add(driver-name=postgres, driver-module-name=org.postgresql, driver-class-name=org.postgresql.Driver )
+
+:reload

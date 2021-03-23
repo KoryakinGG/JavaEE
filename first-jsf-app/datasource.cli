@@ -1,0 +1,9 @@
+data-source add \
+   --jndi-name=java:/jboss/datasources/PostgresDS \
+   --name=PostgresDS \
+   --connection-url=jdbc:postgresql://localhost:5432/postgres?currentSchema=java_ee_market \
+   --driver-name=postgres \
+   --user-name=postgres \
+   --password=admin
+
+:reload
